@@ -429,56 +429,6 @@ The output is similar to the following:
 
 
 output-00000-of-00003:testword: 1
-Cleaning up
-To avoid incurring charges to your Google Cloud account for the resources used in this tutorial, either delete the project that contains the resources, or keep the project and delete the individual resources.
-
-Delete the project
-Caution: Deleting a project has the following effects:
-Everything in the project is deleted. If you used an existing project for this tutorial, when you delete it, you also delete any other work you've done in the project.
-Custom project IDs are lost. When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an appspot.com URL, delete selected resources inside the project instead of deleting the whole project.
-In the Cloud Console, go to the Manage resources page.
-Go to Manage resources
-
-In the project list, select the project that you want to delete, and then click Delete.
-In the dialog, type the project ID, and then click Shut down to delete the project.
-Delete the individual resources
-If you want to keep the project used for this tutorial, run the following steps to delete the resources you created in this tutorial.
-
-To delete the Cloud Build trigger, complete the following steps:
-
-In the Cloud Console, go to the Triggers page.
-
-Go to Triggers page
-
-Next to the trigger that you created, click Moremore_vert, and then click Delete.
-
-In Cloud Shell, delete the Cloud Composer environment:
-
-
-gcloud -q composer environments delete $COMPOSER_ENV_NAME \
-    --location $COMPOSER_REGION
-Delete the Cloud Storage buckets and their files:
-
-
-gsutil -m rm -r gs://$DATAFLOW_JAR_BUCKET_TEST \
-    gs://$INPUT_BUCKET_TEST \
-    gs://$REF_BUCKET_TEST \
-    gs://$RESULT_BUCKET_TEST \
-    gs://$DATAFLOW_STAGING_BUCKET_TEST \
-    gs://$DATAFLOW_JAR_BUCKET_PROD \
-    gs://$INPUT_BUCKET_PROD \
-    gs://$RESULT_BUCKET_PROD \
-    gs://$DATAFLOW_STAGING_BUCKET_PROD
-Delete the repository:
-
-
-gcloud -q source repos delete $SOURCE_CODE_REPO
-Delete the files and folder you created:
-
-
-rm -rf ~/ci-cd-for-data-processing-workflow
-rm -rf ~/$SOURCE_CODE_REPO
-rm -rf ~/result-download
 
 
 
